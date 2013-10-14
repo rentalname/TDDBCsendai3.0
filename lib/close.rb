@@ -1,5 +1,5 @@
-class MyRange
-  attr_accessor :lowerEndPoint, :upperEndPoint
+class Close
+  attr_reader :lowerEndPoint, :upperEndPoint
   def initialize (lowerEndPoint, upperEndPoint)
     raise RangeError if lowerEndPoint > upperEndPoint
     @lowerEndPoint = lowerEndPoint
@@ -22,12 +22,5 @@ class MyRange
     ||
     (target.contains?(lowerEndPoint) ||
       target.contains?(upperEndPoint))
-  end
-end
-
-class OpenRange < MyRange
-  def contains?(findPoint)
-    lowerEndPoint < findPoint &&
-    findPoint < upperEndPoint
   end
 end
