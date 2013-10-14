@@ -1,5 +1,3 @@
-# -*- encoding: utf-8 -*-
-
 class MyRange
   attr_accessor :lowerEndPoint, :upperEndPoint
   def initialize (lowerEndPoint, upperEndPoint)
@@ -19,8 +17,11 @@ class MyRange
     @upperEndPoint == target.upperEndPoint
   end
   def connect?(target)
-    contains?(target.lowerEndPoint) ||
-    contains?(target.upperEndPoint)
+    (contains?(target.lowerEndPoint) ||
+      contains?(target.upperEndPoint)) \
+    ||
+    (target.contains?(lowerEndPoint) ||
+      target.contains?(upperEndPoint))
   end
 end
 
